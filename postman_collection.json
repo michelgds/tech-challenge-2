@@ -1,0 +1,744 @@
+{
+  "info": {
+    "_postman_id": "5fdcbbb6-6bdb-4b71-9cf0-a95698ddcb58",
+    "name": "Tech Challenge 2",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53923408",
+    "_collection_link": "https://go.postman.co/collection/53923408-5fdcbbb6-6bdb-4b71-9cf0-a95698ddcb58?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "usuarios",
+      "item": [
+        {
+          "name": "GET usuarios",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/v1/usuarios?page=1&size=10",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "usuarios"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET usuarios?nome=Admin",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/v1/usuarios?nome=Admin",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "usuarios"
+              ],
+              "query": [
+                {
+                  "key": "nome",
+                  "value": "Admin"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET usuarios/id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/v1/usuarios/1",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "usuarios",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST usuarios",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Mari Natri\",\n  \"email\": \"mariana@email.com\",\n  \"login\": \"marinastri\",\n  \"senha\": \"senha123\",\n  \"tipoUsuarioId\": 2,\n  \"endereco\": {\n    \"rua\": \"Rua Amador Bueno\",\n    \"numero\": \"999\",\n    \"cidade\": \"São Roque\",\n    \"estado\": \"SP\",\n    \"cep\": \"18130-100\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/v1/usuarios",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "usuarios"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST usuarios duplicated email",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n        \"nome\": \"Admin Restaurante 2\",\n        \"email\": \"admin@restaurante.com\",\n        \"login\": \"admin\",\n        \"senha\": \"admin123\",\n        \"tipoUsuarioId\": 1,\n        \"dataUltimaAlteracao\": \"2026-05-04T21:23:43.567511\",\n        \"endereco\": {\n            \"rua\": \"Rua dos Restaurantes\",\n            \"numero\": \"100\",\n            \"cidade\": \"São Paulo\",\n            \"estado\": \"SP\",\n            \"cep\": \"01310-100\"\n        }\n    }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/v1/usuarios",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "usuarios"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH usuarios/id/senha",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"senhaAtual\": \"senha123\",\n  \"novaSenha\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/v1/usuarios/3/senha",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "usuarios",
+                "3",
+                "senha"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT usuarios",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Michel Gracia Santos\",\n  \"email\": \"michel@email.com\",\n  \"login\": \"michelgracia\",\n  \"tipoUsuarioId\": 2,\n  \"endereco\": {\n    \"rua\": \"Rua Amador Bueno\",\n    \"numero\": \"999\",\n    \"cidade\": \"São Roque\",\n    \"estado\": \"SP\",\n    \"cep\": \"18130-100\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/v1/usuarios/3",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "usuarios",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT usuarios missing field tipoUsuarioId",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Michel Gracia\",\n  \"email\": \"michel@email.com\",\n  \"login\": \"michelgracia\",\n  \"endereco\": {\n    \"rua\": \"Rua Amador Bueno\",\n    \"numero\": \"999\",\n    \"cidade\": \"São Roque\",\n    \"estado\": \"SP\",\n    \"cep\": \"18130-100\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/v1/usuarios/3",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "usuarios",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST usuarios/login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"login\": \"admin\",\n  \"senha\": \"admin123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/v1/usuarios/login",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "usuarios",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST usuarios/login fail",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"login\": \"admin\",\n  \"senha\": \"admin999\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/v1/usuarios/login",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "usuarios",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "tipos-usuario",
+      "item": [
+        {
+          "name": "GET tipos-usuario",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/v1/tipos-usuario",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "tipos-usuario"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET tipos-usuario/id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/v1/tipos-usuario/1",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "tipos-usuario",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST tipos-usuario",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"GERENTE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/v1/tipos-usuario",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "tipos-usuario"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST tipos-usuario duplicated nome",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"CLIENTE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/v1/tipos-usuario",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "tipos-usuario"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT tipos-usuario/id",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"GERENTE_GERAL\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/v1/tipos-usuario/3",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "tipos-usuario",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE tipos-usuario/id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/v1/tipos-usuario/3",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "tipos-usuario",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "restaurantes",
+      "item": [
+        {
+          "name": "GET restaurantes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/v1/restaurantes?page=1&size=10",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "restaurantes"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET restaurantes?nome=Cantina",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/v1/restaurantes?nome=Cantina",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "restaurantes"
+              ],
+              "query": [
+                {
+                  "key": "nome",
+                  "value": "Cantina"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET restaurantes/id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/v1/restaurantes/1",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "restaurantes",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST restaurantes",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Sabor da Vila\",\n  \"endereco\": {\n    \"rua\": \"Rua das Palmeiras\",\n    \"numero\": \"321\",\n    \"cidade\": \"São Paulo\",\n    \"estado\": \"SP\",\n    \"cep\": \"01234-000\"\n  },\n  \"tipoCozinha\": \"Brasileira\",\n  \"horarioFuncionamento\": \"Seg a Sab, 11h às 22h\",\n  \"donoId\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/v1/restaurantes",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "restaurantes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST restaurantes dono inexistente",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Sabor Fantasma\",\n  \"endereco\": {\n    \"rua\": \"Rua X\",\n    \"numero\": \"1\",\n    \"cidade\": \"São Paulo\",\n    \"estado\": \"SP\",\n    \"cep\": \"00000-000\"\n  },\n  \"tipoCozinha\": \"Brasileira\",\n  \"horarioFuncionamento\": \"24h\",\n  \"donoId\": 9999\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/v1/restaurantes",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "restaurantes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT restaurantes/id",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Sabor da Vila Atualizado\",\n  \"endereco\": {\n    \"rua\": \"Rua das Palmeiras\",\n    \"numero\": \"321\",\n    \"cidade\": \"São Paulo\",\n    \"estado\": \"SP\",\n    \"cep\": \"01234-000\"\n  },\n  \"tipoCozinha\": \"Brasileira\",\n  \"horarioFuncionamento\": \"Todos os dias, 11h às 23h\",\n  \"donoId\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/v1/restaurantes/1",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "restaurantes",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE restaurantes/id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/v1/restaurantes/1",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "restaurantes",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "itens-cardapio",
+      "item": [
+        {
+          "name": "GET restaurantes/id/itens-cardapio",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/v1/restaurantes/1/itens-cardapio?page=1&size=10",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "restaurantes",
+                "1",
+                "itens-cardapio"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET restaurantes/id/itens-cardapio/id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/v1/restaurantes/1/itens-cardapio/1",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "restaurantes",
+                "1",
+                "itens-cardapio",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST restaurantes/id/itens-cardapio",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Pizza Margherita\",\n  \"descricao\": \"Molho de tomate, mussarela e manjericão\",\n  \"preco\": 45.90,\n  \"disponivelSomenteLocal\": false,\n  \"fotoPath\": \"/fotos/pizza-margherita.jpg\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/v1/restaurantes/1/itens-cardapio",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "restaurantes",
+                "1",
+                "itens-cardapio"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT restaurantes/id/itens-cardapio/id",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Pizza Margherita Grande\",\n  \"descricao\": \"Molho de tomate, mussarela e manjericão fresco\",\n  \"preco\": 55.90,\n  \"disponivelSomenteLocal\": true,\n  \"fotoPath\": \"/fotos/pizza-margherita-grande.jpg\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/v1/restaurantes/1/itens-cardapio/1",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "restaurantes",
+                "1",
+                "itens-cardapio",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE restaurantes/id/itens-cardapio/id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/v1/restaurantes/1/itens-cardapio/1",
+              "host": [
+                "{{localhost}}"
+              ],
+              "path": [
+                "v1",
+                "restaurantes",
+                "1",
+                "itens-cardapio",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "localhost",
+      "value": ""
+    }
+  ]
+}
