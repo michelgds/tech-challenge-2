@@ -11,4 +11,5 @@ public interface ItemCardapioRepository {
     Integer save(ItemCardapio itemCardapio);
     Integer update(ItemCardapio itemCardapio, Long id);
     Integer delete(Long id);
+    Integer deleteByRestauranteId(Long restauranteId);
 }

@@ -74,4 +74,11 @@ public class ItemCardapioRepositoryImpl implements ItemCardapioRepository {
                 .param("id", id)
                 .update();
     }
+
+    @Override
+    public Integer deleteByRestauranteId(Long restauranteId) {
+        return jdbcClient.sql("DELETE FROM itens_cardapio WHERE restaurante_id = :restauranteId")
+                .param("restauranteId", restauranteId)
+                .update();
+    }
 }

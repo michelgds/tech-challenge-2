@@ -56,7 +56,7 @@ WHERE NOT EXISTS (SELECT 1 FROM restaurantes WHERE nome = 'Cantina da Nonna');
 
 CREATE TABLE IF NOT EXISTS itens_cardapio (
     id                        BIGSERIAL PRIMARY KEY,
-    restaurante_id            BIGINT NOT NULL REFERENCES restaurantes(id),
+    restaurante_id            BIGINT NOT NULL REFERENCES restaurantes(id) ON DELETE CASCADE,
     nome                      VARCHAR(255) NOT NULL,
     descricao                 TEXT,
     preco                     NUMERIC(10,2) NOT NULL,
