@@ -6,6 +6,7 @@ import br.com.fiap.techchallenge.domain.exception.ResourceNotFoundException;
 import br.com.fiap.techchallenge.domain.model.Endereco;
 import br.com.fiap.techchallenge.domain.model.Restaurante;
 import br.com.fiap.techchallenge.domain.model.Usuario;
+import br.com.fiap.techchallenge.domain.repository.ItemCardapioRepository;
 import br.com.fiap.techchallenge.domain.repository.RestauranteRepository;
 import br.com.fiap.techchallenge.domain.repository.UsuarioRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -33,6 +34,8 @@ class RestauranteUseCasesTest {
     private RestauranteRepository restauranteRepository;
     @Mock
     private UsuarioRepository usuarioRepository;
+    @Mock
+    private ItemCardapioRepository itemCardapioRepository;
 
     private ListarRestaurantesUseCase listarRestaurantesUseCase;
     private BuscarRestaurantePorIdUseCase buscarRestaurantePorIdUseCase;
@@ -46,7 +49,7 @@ class RestauranteUseCasesTest {
         buscarRestaurantePorIdUseCase = new BuscarRestaurantePorIdUseCase(restauranteRepository);
         criarRestauranteUseCase = new CriarRestauranteUseCase(restauranteRepository, usuarioRepository);
         atualizarRestauranteUseCase = new AtualizarRestauranteUseCase(restauranteRepository, usuarioRepository);
-        excluirRestauranteUseCase = new ExcluirRestauranteUseCase(restauranteRepository);
+        excluirRestauranteUseCase = new ExcluirRestauranteUseCase(restauranteRepository, itemCardapioRepository);
     }
 
     @Test
@@ -158,6 +161,7 @@ class RestauranteUseCasesTest {
 
         excluirRestauranteUseCase.execute(6L);
 
+        verify(itemCardapioRepository).deleteByRestauranteId(6L);
         verify(restauranteRepository).delete(6L);
     }
 
@@ -169,6 +173,7 @@ class RestauranteUseCasesTest {
                 .isInstanceOf(ResourceNotFoundException.class)
                 .hasMessage("Restaurante não encontrado com id: 33");
 
+        verify(itemCardapioRepository, never()).deleteByRestauranteId(any());
         verify(restauranteRepository, never()).delete(any());
     }
 
