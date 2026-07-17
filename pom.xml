@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.fiap</groupId>
-	<artifactId>usuarios</artifactId>
+	<artifactId>techchallenge</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name/>
 	<description/>
@@ -153,8 +153,8 @@
 						</goals>
 						<configuration>
 							<excludes>
-								<exclude>br/com/fiap/usuarios/UsuariosApplication.class</exclude>
-								<exclude>br/com/fiap/usuarios/infrastructure/config/**</exclude>
+								<exclude>br/com/fiap/techchallenge/TechChallengeApplication.class</exclude>
+								<exclude>br/com/fiap/techchallenge/infrastructure/config/**</exclude>
 							</excludes>
 							<rules>
 								<rule>

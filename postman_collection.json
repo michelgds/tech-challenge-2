@@ -502,7 +502,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"nome\": \"Sabor da Vila\",\n  \"endereco\": {\n    \"rua\": \"Rua das Palmeiras\",\n    \"numero\": \"321\",\n    \"cidade\": \"São Paulo\",\n    \"estado\": \"SP\",\n    \"cep\": \"01234-000\"\n  },\n  \"tipoCozinha\": \"Brasileira\",\n  \"horarioFuncionamento\": \"Seg a Sab, 11h às 22h\",\n  \"donoId\": 1\n}",
+              "raw": "{\n  \"nome\": \"Sabor da Vila\",\n  \"endereco\": {\n    \"rua\": \"Rua das Palmeiras\",\n    \"numero\": \"321\",\n    \"cidade\": \"São Paulo\",\n    \"estado\": \"SP\",\n    \"cep\": \"01234-000\"\n  },\n  \"tipoCozinha\": \"Brasileira\",\n  \"horarioFuncionamento\": \"Seg a Sab, 11h às 22h\",\n  \"adminId\": 1\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -529,7 +529,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"nome\": \"Sabor Fantasma\",\n  \"endereco\": {\n    \"rua\": \"Rua X\",\n    \"numero\": \"1\",\n    \"cidade\": \"São Paulo\",\n    \"estado\": \"SP\",\n    \"cep\": \"00000-000\"\n  },\n  \"tipoCozinha\": \"Brasileira\",\n  \"horarioFuncionamento\": \"24h\",\n  \"donoId\": 9999\n}",
+              "raw": "{\n  \"nome\": \"Sabor Fantasma\",\n  \"endereco\": {\n    \"rua\": \"Rua X\",\n    \"numero\": \"1\",\n    \"cidade\": \"São Paulo\",\n    \"estado\": \"SP\",\n    \"cep\": \"00000-000\"\n  },\n  \"tipoCozinha\": \"Brasileira\",\n  \"horarioFuncionamento\": \"24h\",\n  \"adminId\": 9999\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -556,7 +556,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"nome\": \"Sabor da Vila Atualizado\",\n  \"endereco\": {\n    \"rua\": \"Rua das Palmeiras\",\n    \"numero\": \"321\",\n    \"cidade\": \"São Paulo\",\n    \"estado\": \"SP\",\n    \"cep\": \"01234-000\"\n  },\n  \"tipoCozinha\": \"Brasileira\",\n  \"horarioFuncionamento\": \"Todos os dias, 11h às 23h\",\n  \"donoId\": 1\n}",
+              "raw": "{\n  \"nome\": \"Sabor da Vila Atualizado\",\n  \"endereco\": {\n    \"rua\": \"Rua das Palmeiras\",\n    \"numero\": \"321\",\n    \"cidade\": \"São Paulo\",\n    \"estado\": \"SP\",\n    \"cep\": \"01234-000\"\n  },\n  \"tipoCozinha\": \"Brasileira\",\n  \"horarioFuncionamento\": \"Todos os dias, 11h às 23h\",\n  \"adminId\": 1\n}",
               "options": {
                 "raw": {
                   "language": "json"

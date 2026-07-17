@@ -46,10 +46,10 @@ CREATE TABLE IF NOT EXISTS restaurantes (
     cep                    VARCHAR(20),
     tipo_cozinha           VARCHAR(100) NOT NULL,
     horario_funcionamento  VARCHAR(255) NOT NULL,
-    dono_id                BIGINT NOT NULL REFERENCES usuarios(id)
+    admin_id                BIGINT NOT NULL REFERENCES usuarios(id)
 );
 
-INSERT INTO restaurantes (nome, rua, numero, cidade, estado, cep, tipo_cozinha, horario_funcionamento, dono_id)
+INSERT INTO restaurantes (nome, rua, numero, cidade, estado, cep, tipo_cozinha, horario_funcionamento, admin_id)
 SELECT 'Cantina da Nonna', 'Rua Itália', '50', 'São Paulo', 'SP', '01310-300', 'Italiana', 'Seg a Dom, 11h às 23h',
        (SELECT id FROM usuarios WHERE email = 'admin@restaurante.com')
 WHERE NOT EXISTS (SELECT 1 FROM restaurantes WHERE nome = 'Cantina da Nonna');

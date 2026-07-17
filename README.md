@@ -254,7 +254,7 @@ curl -X POST http://localhost:8080/v1/restaurantes \
     },
     "tipoCozinha": "Italiana",
     "horarioFuncionamento": "Seg a Dom, 11h às 23h",
-    "donoId": 1
+    "adminId": 1
   }'
 ```
 
