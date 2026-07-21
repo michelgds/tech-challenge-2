@@ -304,38 +304,30 @@ Todos os erros seguem o padrão **RFC 7807 (ProblemDetail)**, nativo do Spring 6
 
 ```
 src/main/java/br/com/fiap/usuarios/
-├── domain/                                   # Regras de negócio, sem dependências externas
-│   ├── model/                                # Usuario, Endereco, TipoUsuario, Restaurante, ItemCardapio
-│   ├── exception/                            # AuthenticationException, BusinessException, ResourceNotFoundException
-│   └── repository/                           # Interfaces (ports) dos repositórios
-├── application/                              # Casos de uso da aplicação
-│   ├── dto/                                  # DTOs de entrada e de resposta, agrupados por módulo
-│   ├── mapper/                               # Conversão DTO <-> entidade de domínio (UsuarioMapper, RestauranteMapper, ...)
-│   └── usecase/                              # Um caso de uso por classe (Interactor), agrupados por módulo:
-│       ├── usuario/                          # Criar, Atualizar, AtualizarSenha, Excluir, Buscar, Listar, Autenticar
-│       ├── restaurante/                      # Criar, Atualizar, Excluir, Buscar, Listar
-│       ├── tipousuario/                      # Criar, Atualizar, Excluir, Buscar, Listar
-│       └── itemcardapio/                     # Criar, Atualizar, Excluir, Buscar, Listar
-└── infrastructure/                           # Detalhes técnicos (adapters)
-    ├── config/OpenApiConfig.java              # Configuração Swagger/OpenAPI
-    ├── security/PasswordEncoderConfig.java     # Bean de PasswordEncoder (BCrypt)
+├── domain/                                   
+│   ├── model/                                
+│   ├── exception/                            
+│   └── repository/                           
+├── application/                              
+│   ├── dto/                                  
+│   ├── mapper/                               
+│   └── usecase/                              
+│       ├── usuario/                          
+│       ├── restaurante/                      
+│       ├── tipousuario/                      
+│       └── itemcardapio/                     
+└── infrastructure/                           
+    ├── config/OpenApiConfig.java             
+    ├── security/PasswordEncoderConfig.java     
     ├── web/
-    │   ├── controller/                        # Controllers REST de cada módulo (finos, delegam aos casos de uso)
-    │   └── handler/ControllerExceptionHandler.java  # Tratamento global de erros (RFC 7807)
-    └── persistence/jdbc/                      # Implementações dos repositórios com JdbcClient + RowMappers
+    │   ├── controller/                        
+    │   └── handler/ControllerExceptionHandler.java  
+    └── persistence/jdbc/                      
 ```
-
-A regra de dependência segue o sentido `infrastructure → application → domain`: o `domain` não depende de nenhuma outra camada, `application` depende apenas de `domain`, e `infrastructure` implementa as portas definidas em `domain` e expõe os casos de uso de `application` via REST.
-
-### 🔒 Segurança de senha
-
-Senhas nunca são armazenadas ou comparadas em texto plano: `CriarUsuarioUseCase` e `AtualizarSenhaUsuarioUseCase` usam `PasswordEncoder` (BCrypt) para gerar o hash, e `AutenticarUsuarioUseCase` valida a senha informada com `passwordEncoder.matches(...)` contra o hash persistido.
-
----
 
 ## 🧪 Testes
 
-- **Testes unitários** (JUnit 5 + Mockito) para os casos de uso de cada módulo (usuário, restaurante, tipo de usuário, item de cardápio), cobrindo cenários de sucesso e de erro (regras de negócio, recursos não encontrados, hashing/verificação de senha).
+- **Testes unitários** (JUnit 5 + Mockito) para os casos de uso de cada módulo (usuário, restaurante, tipo de usuário, item de cardápio).
 - **Testes de integração** (Spring Boot Test + MockMvc, banco H2 em modo PostgreSQL) para os 4 controllers, cobrindo o fluxo CRUD completo e os principais cenários de erro (400/404/422).
 - Cobertura de código medida com **JaCoCo**, com verificação automática de mínimo de **80% de linhas cobertas** durante o `mvn verify` (`./mvnw clean verify`).
 
